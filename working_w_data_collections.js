@@ -19,7 +19,7 @@ const CSV = "Index,Mass (kg),Spring 1 (m),Spring 2 (m)\n1,0.00,0.050,0.050\n2,0.
 //Expanding Code
 
 let row = [];
-let full2dDataset = [];
+let fullDataset = [];
 
 //Calculate columns
 
@@ -33,19 +33,33 @@ cells.forEach((cell) => {
     row.push(cell);
 
     if (row.length === numColumns){
-        full2dDataset.push([...row]);
+        fullDataset.push([...row]);
         row.splice(0, row.length);
     }    
 });
 
 // Transforming Data
 
-const keys = full2dDataset[0];
-let dataset = {};
+fullDataset[0].forEach((cell, i) => {
+    fullDataset[0][i] = cell.toLowerCase();
+});
 
-console.log(full2dDataset);
-console.log(full2dDataset.length);
+const keys = fullDataset[0]
+let objects = [];
 
-for (i=1; i < full2dDataset.length -1; i++){
 
+
+for (i=1; i < fullDataset.length; i++){
+    //Set up an ojbect
+    //Loop through the fullDataset[i]
+    //Loop through array
+    //For each elem assign a key based on keys[j]
+
+    let object = {};
+    fullDataset[i].forEach((cell, j) => {
+        object[keys[j]] = cell;
+    });
+    objects.push(object);
 }
+
+console.log(objects);
