@@ -19,7 +19,7 @@ const CSV = "Index,Mass (kg),Spring 1 (m),Spring 2 (m)\n1,0.00,0.050,0.050\n2,0.
 //Expanding Code
 
 let row = [];
-let fullDataset = [];
+let full2dDataset = [];
 
 //Calculate columns
 
@@ -33,18 +33,19 @@ cells.forEach((cell) => {
     row.push(cell);
 
     if (row.length === numColumns){
-        fullDataset.push([...row]);
+        full2dDataset.push([...row]);
         row.splice(0, row.length);
     }    
-})
+});
 
-console.log(fullDataset);
+// Transforming Data
 
+const keys = full2dDataset[0];
+let dataset = {};
 
-// const cells = CSV.split(/[,\n]/);
-// console.log(cells);
+console.log(full2dDataset);
+console.log(full2dDataset.length);
 
-// cells.forEach(i => {
-//     row.push(cells[i]);
-    
-// })
+for (i=1; i < full2dDataset.length -1; i++){
+
+}
