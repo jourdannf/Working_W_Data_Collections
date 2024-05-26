@@ -83,3 +83,25 @@ for (let i = 0; i < people.length; i++){
 
 console.log("The average age is " + sum/people.length);
 
+//Full Circle
+//Transform data back into CSV
+
+//Use key method to turn headings into an array
+//Use toString method to transform it into a string
+//Add newline character to the end of the string
+//Loop through array and for every object use values methods to get rest of data into arrays
+//For every array add newline character to end of the string
+//Concatenate every string formed w newline character to one with headings
+//If you're on the last array, then don't add newline character
+
+let newCSV = Object.keys(people[0]).toString() + "\\n";
+
+people.forEach((person,i) => {
+    if (i === people.length-1) {
+        newCSV += Object.values(person).toString()
+    }else {
+        newCSV += Object.values(person).toString() + "\\n";
+    }
+});
+
+console.log(newCSV);
