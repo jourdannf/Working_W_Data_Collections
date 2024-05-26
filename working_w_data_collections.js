@@ -1,4 +1,4 @@
-const CSV = "Index,Mass (kg),Spring 1 (m),Spring 2 (m)\n1,0.00,0.050,0.050\n2,0.49,0.066,0.066\n3,0.98,0.087,0.080\n4,1.47,0.116,0.108\n5,1.96,0.142,0.138\n6,2.45,0.166,0.158\n7,2.94,0.193,0.174\n8,3.43,0.204,0.192\n9,3.92,0.226,0.205\n10,4.41,0.238,0.232"
+const CSV = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26"
 
 //  Refactoring Old Code
 
@@ -45,7 +45,7 @@ fullDataset[0].forEach((cell, i) => {
 });
 
 const keys = fullDataset[0]
-let objects = [];
+let people = [];
 
 
 
@@ -55,11 +55,31 @@ for (i=1; i < fullDataset.length; i++){
     //Loop through array
     //For each elem assign a key based on keys[j]
 
-    let object = {};
+    let person = {};
     fullDataset[i].forEach((cell, j) => {
-        object[keys[j]] = cell;
+        person[keys[j]] = cell;
     });
-    objects.push(object);
+    people.push(person);
 }
 
-console.log(objects);
+console.log(people);
+
+//Sorting and Manipulating Data
+
+//Remove the last element from array
+//Insert object at index 1
+//Add object to end of array
+//Get average of everyone's age
+
+people.pop();
+people.splice(1,0,{ id: "48", name: "Barry", occupation: "Runner", age: "25" });
+people.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
+console.log(people);
+
+let sum = 0;
+for (let i = 0; i < people.length; i++){
+    sum += Number(people[i].age);
+}
+
+console.log("The average age is " + sum/people.length);
+
